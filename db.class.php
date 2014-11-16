@@ -25,10 +25,10 @@ class PostAPI
         $this->db->close();
     }
     
-    function addToDB($title, $content, $link, $date, $source, $town, $lat, $lng, $img_link)
+    function addToDB($title, $content, $link, $date, $source, $town, $img_link)
     {
-        $stmt = $this->db->prepare("INSERT INTO feed(title, content, link,date,source,town,lat,lng,img_link) VALUES (?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param('sssssssss', $title, $content, $link, $date, $source, $town, $lat, $lng, $img_link);
+        $stmt = $this->db->prepare("INSERT INTO feed(title, content, link,date,source,town,img_link) VALUES (?,?,?,?,?,?,?)");
+        $stmt->bind_param('sssssss', $title, $content, $link, $date, $source, $town,$img_link);
         $stmt->execute();
         $stmt->close();
         return true;
